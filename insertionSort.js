@@ -2,10 +2,6 @@
 
 var unsortedArray = [2,4,6,1,3,7,1,6,5];
 
-var compare = function(a, b){
- return a < b	
-}
-
 var swap = function(array, index){
 	var a = array[index];
 	var b = array[index - 1];
