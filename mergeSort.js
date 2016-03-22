@@ -3,7 +3,7 @@ var unsortedArray = [2, 4, 6, 1, 5, 9];
 
 var merge = function(array1, array2){
 
-    mergedArray = [];
+    var mergedArray = [];
     while(array1.length !== 0 && array2.length !==0){
 
         if(array1[0] > array2[0]){
