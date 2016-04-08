@@ -37,13 +37,13 @@ var heapMaxify = function(index, array){
     return; // this case, the target is in the right place.
   }
 
-  if(target < left && left > right){
+  if(target < left && (left > right || !right)){
     var leftIndexToSwap = leftIndex(index);
     swapByIndex(array, leftIndexToSwap, index);
     heapMaxify(leftIndexToSwap, array);
   }
 
-  if(target < right && right > left){
+  if(target < right && (right > left || !left) ){
     var rightIndexToSwap = rightIndex(index);
     swapByIndex(array, rightIndexToSwap, index);
     heapMaxify(rightIndexToSwap, array);
@@ -61,6 +61,18 @@ var buildMaxHeap = function(array){
   return array;
 }
 
-var sortedArray = buildMaxHeap(unsortedArray);
+var heapSort = function(array){
+  var sorted = [];
+  while(array.length > 0){
+    swapByIndex(array, 0, array.length - 1);
+    var last = array.pop();
+    sorted.push(last);
+    heapMaxify(0, array);
+  }
+  return sorted;
+}
+var heapMaxArray = buildMaxHeap(unsortedArray);
+var sortedArray = heapSort(heapMaxArray);
+
 
 console.log(sortedArray);
